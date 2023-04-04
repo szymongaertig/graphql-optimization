@@ -1,0 +1,5 @@
+query getTicket($ticketId:UUID!){
+  ticket(ticketId:$ticketId){
+    id
+  }
+}

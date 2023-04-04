@@ -1,0 +1,11 @@
+{
+    eventRegistrations{
+        id
+        name
+        surname
+        registrationDate
+        emailAddress
+        checkInDate
+        status
+    }
+}

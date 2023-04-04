@@ -1,0 +1,1 @@
+GET https://localhost:5001/graphql?id=1235
