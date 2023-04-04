@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hWLNP5IoFSR/QQVb6FyXbv0e6IB/lE/Q6y8hmxQ7dfYhfqvrhKZBJBoTEYPmzDqVXl7T00Cbn8dbr4WCwPtO6w==",
+  "dgSpecHash": "MlMMQF1dEFYQCNX/t1xv4rXuWzZhLmb8Z7P5cMQtsDr3mDSZUT2gD4V9/WtCIxyMKP5Pi4KvqO92YyQOxD9ENg==",
   "success": true,
   "projectFilePath": "/Users/garfieldsg/repos/graphql-optimization/src/be/GraphlOptimization/Api/Api.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,7 @@
     "/Users/garfieldsg/.nuget/packages/hotchocolate.language.visitors/13.0.5/hotchocolate.language.visitors.13.0.5.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/hotchocolate.language.web/13.0.5/hotchocolate.language.web.13.0.5.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/hotchocolate.persistedqueries.filesystem/13.0.5/hotchocolate.persistedqueries.filesystem.13.0.5.nupkg.sha512",
+    "/Users/garfieldsg/.nuget/packages/hotchocolate.persistedqueries.inmemory/13.0.5/hotchocolate.persistedqueries.inmemory.13.0.5.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/hotchocolate.subscriptions/13.0.5/hotchocolate.subscriptions.13.0.5.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/hotchocolate.subscriptions.inmemory/13.0.5/hotchocolate.subscriptions.inmemory.13.0.5.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/hotchocolate.transport.sockets/13.0.5/hotchocolate.transport.sockets.13.0.5.nupkg.sha512",
@@ -36,9 +37,12 @@
     "/Users/garfieldsg/.nuget/packages/hotchocolate.utilities.introspection/13.0.5/hotchocolate.utilities.introspection.13.0.5.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/hotchocolate.validation/13.0.5/hotchocolate.validation.13.0.5.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
+    "/Users/garfieldsg/.nuget/packages/microsoft.extensions.caching.abstractions/3.1.4/microsoft.extensions.caching.abstractions.3.1.4.nupkg.sha512",
+    "/Users/garfieldsg/.nuget/packages/microsoft.extensions.caching.memory/3.1.4/microsoft.extensions.caching.memory.3.1.4.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/microsoft.extensions.dependencyinjection/3.1.4/microsoft.extensions.dependencyinjection.3.1.4.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/3.1.4/microsoft.extensions.dependencyinjection.abstractions.3.1.4.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/microsoft.extensions.diagnosticadapter/3.1.4/microsoft.extensions.diagnosticadapter.3.1.4.nupkg.sha512",
+    "/Users/garfieldsg/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.4/microsoft.extensions.logging.abstractions.3.1.4.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/microsoft.extensions.objectpool/3.1.4/microsoft.extensions.objectpool.3.1.4.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/microsoft.extensions.options/3.1.4/microsoft.extensions.options.3.1.4.nupkg.sha512",
     "/Users/garfieldsg/.nuget/packages/microsoft.extensions.primitives/3.1.4/microsoft.extensions.primitives.3.1.4.nupkg.sha512",

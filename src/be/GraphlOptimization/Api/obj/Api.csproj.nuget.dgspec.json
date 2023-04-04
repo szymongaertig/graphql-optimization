@@ -61,6 +61,10 @@
             "HotChocolate.PersistedQueries.FileSystem": {
               "target": "Package",
               "version": "[13.0.5, )"
+            },
+            "HotChocolate.PersistedQueries.InMemory": {
+              "target": "Package",
+              "version": "[13.0.5, )"
             }
           },
           "imports": [

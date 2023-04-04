@@ -20,10 +20,8 @@ builder.Services
     .AddInMemorySubscriptions()
     .AddSubscriptionType<Subscription>()
     .AddCacheControl()
-    .UseQueryCachePipeline()
-    .UsePersistedQueryPipeline()
-    .AddReadOnlyFileSystemQueryStorage("./queries");
-    
+    .UseAutomaticPersistedQueryPipeline()
+    .AddInMemoryQueryStorage();
 
 builder.Services.AddCors(options =>
 {

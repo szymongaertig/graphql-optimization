@@ -20,13 +20,11 @@
       <PackageReference Include="HotChocolate.AspNetCore" Version="13.0.5" />
       <PackageReference Include="HotChocolate.Caching" Version="13.0.5" />
       <PackageReference Include="HotChocolate.PersistedQueries.FileSystem" Version="13.0.5" />
+      <PackageReference Include="HotChocolate.PersistedQueries.InMemory" Version="13.0.5" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="queries\1234.graphql" />
-      <EmbeddedResource Include="queries\1234.graphql">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </EmbeddedResource>
     </ItemGroup>
 
 </Project>

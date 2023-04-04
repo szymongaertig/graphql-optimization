@@ -386,6 +386,23 @@
           }
         }
       },
+      "HotChocolate.PersistedQueries.InMemory/13.0.5": {
+        "type": "package",
+        "dependencies": {
+          "HotChocolate": "13.0.5",
+          "Microsoft.Extensions.Caching.Memory": "3.1.4"
+        },
+        "compile": {
+          "lib/net6.0/HotChocolate.PersistedQueries.InMemory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/HotChocolate.PersistedQueries.InMemory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "HotChocolate.Subscriptions/13.0.5": {
         "type": "package",
         "dependencies": {
@@ -590,6 +607,41 @@
           }
         }
       },
+      "Microsoft.Extensions.Caching.Abstractions/3.1.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.1.4"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/3.1.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "3.1.4",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.4",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.4",
+          "Microsoft.Extensions.Options": "3.1.4"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/3.1.4": {
         "type": "package",
         "dependencies": {
@@ -631,6 +683,19 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/Microsoft.Extensions.DiagnosticAdapter.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/3.1.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "related": ".xml"
           }
         }
@@ -2543,6 +2608,27 @@
         "strawberryshake-signet.png"
       ]
     },
+    "HotChocolate.PersistedQueries.InMemory/13.0.5": {
+      "sha512": "z5+vEenUDX/l5AlW722OSpY69Hhz12y236Vysdq66FGvLw9WRHw+oGWvsqvK9YunMhCvAFbDIXiaxtM+nqxvfw==",
+      "type": "package",
+      "path": "hotchocolate.persistedqueries.inmemory/13.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "greendonut-signet.png",
+        "hotchocolate-signet.png",
+        "hotchocolate.persistedqueries.inmemory.13.0.5.nupkg.sha512",
+        "hotchocolate.persistedqueries.inmemory.nuspec",
+        "lib/net6.0/HotChocolate.PersistedQueries.InMemory.dll",
+        "lib/net6.0/HotChocolate.PersistedQueries.InMemory.xml",
+        "lib/net7.0/HotChocolate.PersistedQueries.InMemory.dll",
+        "lib/net7.0/HotChocolate.PersistedQueries.InMemory.xml",
+        "lib/netstandard2.0/HotChocolate.PersistedQueries.InMemory.dll",
+        "lib/netstandard2.0/HotChocolate.PersistedQueries.InMemory.xml",
+        "strawberryshake-signet.png"
+      ]
+    },
     "HotChocolate.Subscriptions/13.0.5": {
       "sha512": "G/i1OTh0h02SAYjD2jFqof0HoXbpRDZOeryL5xCDbXLGy+exJv84El6VM567revoH8m8tva6X0VCJ0n5vmIQRQ==",
       "type": "package",
@@ -2794,6 +2880,38 @@
         "version.txt"
       ]
     },
+    "Microsoft.Extensions.Caching.Abstractions/3.1.4": {
+      "sha512": "gwJ44A/NSXC6GTqyBpIJU/nP0bRuKEL6WXMWV5bANWZUj/5nRs8CzdMpylK2K8Wc6cr87uvlNl7O5seU2WaclA==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.abstractions/3.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "microsoft.extensions.caching.abstractions.3.1.4.nupkg.sha512",
+        "microsoft.extensions.caching.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Caching.Memory/3.1.4": {
+      "sha512": "VCLUu+xIJd+EPOHU3+owvQv9dZqU66iNlNdImGAGvLcuOzZorWuF/riGbaLcVJQsBhTF7/lG9j1VX2LuBq4Lbw==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.memory/3.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.xml",
+        "microsoft.extensions.caching.memory.3.1.4.nupkg.sha512",
+        "microsoft.extensions.caching.memory.nuspec"
+      ]
+    },
     "Microsoft.Extensions.DependencyInjection/3.1.4": {
       "sha512": "dAWhz6BEjUFIVLUPbT1s1sUrPTwbUWdw2iBRRe3ej3xXcKS+oo64dKrIWFxRjYP6TWyESpGFNY5NGeA5FcHVlg==",
       "type": "package",
@@ -2844,6 +2962,20 @@
         "lib/netstandard2.0/Microsoft.Extensions.DiagnosticAdapter.xml",
         "microsoft.extensions.diagnosticadapter.3.1.4.nupkg.sha512",
         "microsoft.extensions.diagnosticadapter.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Abstractions/3.1.4": {
+      "sha512": "JNPxhw2XwhjfGFyIkA5eBfzUDPNpa6Q50HJ2F6lCAMoSa1GquAktTrl4PhEyTYFNmu09B0E90WhYsUb3kmSkOA==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/3.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.3.1.4.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec"
       ]
     },
     "Microsoft.Extensions.ObjectPool/3.1.4": {
@@ -6509,7 +6641,8 @@
       "Hangfire.MemoryStorage >= 1.7.0",
       "HotChocolate.AspNetCore >= 13.0.5",
       "HotChocolate.Caching >= 13.0.5",
-      "HotChocolate.PersistedQueries.FileSystem >= 13.0.5"
+      "HotChocolate.PersistedQueries.FileSystem >= 13.0.5",
+      "HotChocolate.PersistedQueries.InMemory >= 13.0.5"
     ]
   },
   "packageFolders": {
@@ -6570,6 +6703,10 @@
             "version": "[13.0.5, )"
           },
           "HotChocolate.PersistedQueries.FileSystem": {
+            "target": "Package",
+            "version": "[13.0.5, )"
+          },
+          "HotChocolate.PersistedQueries.InMemory": {
             "target": "Package",
             "version": "[13.0.5, )"
           }
