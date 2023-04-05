@@ -31,10 +31,10 @@ builder.Services
     .AddMutationType<Mutation>()
     .AddInMemorySubscriptions()
     .AddSubscriptionType<Subscription>()
-    //.AddCacheControl()
-    //.UseQueryCachePipeline()
-    .UseAutomaticPersistedQueryPipeline()
-    .AddInMemoryQueryStorage();
+    //.UseAutomaticPersistedQueryPipeline()
+    //.AddInMemoryQueryStorage()
+    .AddCacheControl()
+    .UseQueryCachePipeline();
 
 builder.Services.AddCors(options =>
 {

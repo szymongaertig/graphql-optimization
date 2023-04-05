@@ -17,7 +17,7 @@ public class Query
         return _registrationsRepository.GetRegistrations();
     }
     
-    //[CacheControl(10_000, Scope = CacheControlScope.Private)]
+    [CacheControl(10_000, Scope = CacheControlScope.Private)]
     public async Task<Ticket> GetTicket(Guid ticketId)
     {
         await Task.Delay(2000);

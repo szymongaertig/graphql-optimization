@@ -1,0 +1,7 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<ng-container *ngIf="ticket">
+  <b>Name</b> : {{ticket.name}} <br/>
+  <b>Status</b> : {{ticket.status}} <br/>
+  <b>RegistrationDate</b> : {{ticket.registrationDate | date}}
+</ng-container>

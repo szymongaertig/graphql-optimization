@@ -1,6 +1,7 @@
 using Api.Model;
 using AutoFixture;
 using HotChocolate.Subscriptions;
+using Serilog;
 
 namespace Api;
 
@@ -17,6 +18,7 @@ public class Mutation
         [Service] ITopicEventSender eventSender,
         CancellationToken cancellationToken)
     {
+        Log.Information("--check in");
         await Task.Delay(2000);
        var existingRegistration = _registrationsRepository.FindRegistrationById(registrationId);
         if (existingRegistration == null)
@@ -38,6 +40,7 @@ public class Mutation
     public async Task<Registration?> CreateRandomRegistration([Service] ITopicEventSender eventSender,
         CancellationToken cancellationToken)
     {
+        Log.Information("--Create random registration");
         var newRegistration = RegistrationsRepository.GetRandomRegistrations(1)
             .First();
         _registrationsRepository.CreateOrUpdateRegistration(newRegistration);
