@@ -17,9 +17,10 @@ public class Query
         return _registrationsRepository.GetRegistrations();
     }
     
-    [CacheControl(10_000, Scope = CacheControlScope.Private)]
-    public Ticket GetTicket(Guid ticketId)
+    //[CacheControl(10_000, Scope = CacheControlScope.Private)]
+    public async Task<Ticket> GetTicket(Guid ticketId)
     {
+        await Task.Delay(2000);
         var registration = _registrationsRepository.FindRegistrationById(ticketId);
         if (registration == null)
         {
@@ -36,11 +37,14 @@ public class Ticket
         Id = registration.Id;
         Status = registration.Status;
         RegistrationDate = registration.RegistrationDate;
+        Name = $"{registration.Name} {registration.Surname}";
     }
 
-    public DateTimeOffset RegistrationDate { get; set; }
+    public DateTimeOffset RegistrationDate { get; }
 
-    public RegistrationStatus Status { get; set; }
+    public RegistrationStatus Status { get; }
 
-    public Guid Id { get; set; }
+    public Guid Id { get; }
+    
+    public string Name { get; }
 }

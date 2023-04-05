@@ -1,17 +1,29 @@
-using System.Collections.Immutable;
 using Api;
+using Api.DataLoaders;
 using Api.Emails;
 using Api.Model;
 using AutoFixture;
 using Hangfire;
 using Hangfire.MemoryStorage;
+using HotChocolate.Language;
+using Serilog;
 
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
+
+Log.Information("Starting web application");
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog();
 
 builder.Services.AddSingleton<RegistrationsRepository>();
 builder.Services.AddSingleton<RegistrationCreator>();
+builder.Services.AddSingleton<EmailsService>();
 
 builder.Services
+    .AddMemoryCache()
+    .AddSha256DocumentHashProvider(HashFormat.Hex)
     .AddGraphQLServer()
     .AddQueryType<Query>()
     .AddType<RegistrationType>()
@@ -19,7 +31,8 @@ builder.Services
     .AddMutationType<Mutation>()
     .AddInMemorySubscriptions()
     .AddSubscriptionType<Subscription>()
-    .AddCacheControl()
+    //.AddCacheControl()
+    //.UseQueryCachePipeline()
     .UseAutomaticPersistedQueryPipeline()
     .AddInMemoryQueryStorage();
 
@@ -38,13 +51,12 @@ builder.Services.AddHangfire(c => c.UseMemoryStorage());
 builder.Services.AddHangfireServer();
 var app = builder.Build();
 var backgroundJobClient = app.Services.GetService<IBackgroundJobClient>();
-//backgroundJobClient.Enqueue<RegistrationCreator>(x => x.Create());
+backgroundJobClient.Enqueue<RegistrationCreator>(x => x.Create());
 
-app.UseCors();
 app.UseWebSockets();
+app.UseCors();
 app.MapGraphQL();
 app.Run();
-
 
 public class RegistrationType : ObjectType<Registration>
 {
@@ -54,20 +66,20 @@ public class RegistrationType : ObjectType<Registration>
             .Field("emails")
             .Resolve<Email[]>(async (cx, ct) =>
             {
-                await Task.Delay(1000, ct);
-                var result = new Fixture().CreateMany<Email>(5).ToArray();
-                return result;
+                var registration = cx.Parent<Registration>();
+                var emailService = cx.Service<EmailsService>();
+                return await emailService.GetRegistrationEmails(registration.Id);
             });
 
-       /* descriptor
+        descriptor
             .Field("emailsWithLoader")
             .Resolve<Email[]?>(async (cx, ct) =>
             {
                 var registration = cx.Parent<Registration>();
-                var loader = cx.BatchDataLoader()
-                var res = await loader.LoadAsync(registration.Id, ct);
-                return (Email[])res;
-            });*/
+                var loader = cx.DataLoader<RegistrationEmailsDataLoader>();
+                var result = await loader.LoadAsync(registration.Id, ct);
+                return result;
+            });
 
         descriptor
             .Field("emailsStream")
@@ -88,26 +100,5 @@ public class RegistrationType : ObjectType<Registration>
             yield return email;
             await Task.Delay(500);
         }
-    }
-}
-
-public class RegistrationEmailsDataLoader : BatchDataLoader<int, Email[]>
-{
-    public RegistrationEmailsDataLoader(IBatchScheduler batchScheduler, DataLoaderOptions? options = null) : base(
-        batchScheduler, options)
-    {
-    }
-
-    protected async override Task<IReadOnlyDictionary<int, Email[]>> LoadBatchAsync(IReadOnlyList<int> keys,
-        CancellationToken cancellationToken)
-    {
-        var result = new Dictionary<int, Email[]>();
-        await Task.Delay(1000);
-        foreach (var t in keys)
-        {
-            var res = new Fixture().CreateMany<Email>(10).ToArray();
-            result.Add(t,res);
-        }
-        return result.ToImmutableDictionary();
     }
 }

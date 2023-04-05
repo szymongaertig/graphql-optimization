@@ -6,8 +6,12 @@ public class Subscription
 {
     [Subscribe]
     [Topic("registration-created")]
-    public Registration OnRegistered([EventMessage] Registration registration) => registration;
-
+    public Registration OnRegistered([EventMessage] Registration registration)
+    {
+        return registration;
+    }
+    
+    
     [Subscribe]
     [Topic("registration-updated")]
     public Registration OnRegistrationUpdated([EventMessage] Registration registration) => registration;

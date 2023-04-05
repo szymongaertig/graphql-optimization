@@ -1,4 +1,5 @@
 using Api.Model;
+using AutoFixture;
 using HotChocolate.Subscriptions;
 
 namespace Api;
@@ -16,7 +17,8 @@ public class Mutation
         [Service] ITopicEventSender eventSender,
         CancellationToken cancellationToken)
     {
-        var existingRegistration = _registrationsRepository.FindRegistrationById(registrationId);
+        await Task.Delay(2000);
+       var existingRegistration = _registrationsRepository.FindRegistrationById(registrationId);
         if (existingRegistration == null)
         {
             throw new Exception("Could not find registration");
