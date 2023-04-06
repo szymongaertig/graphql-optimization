@@ -17,7 +17,6 @@ public class Query
         return _registrationsRepository.GetRegistrations();
     }
     
-    [CacheControl(10_000, Scope = CacheControlScope.Private)]
     public async Task<Ticket> GetTicket(Guid ticketId)
     {
         await Task.Delay(2000);
@@ -28,23 +27,4 @@ public class Query
         }
         return new Ticket(registration);
     }
-}
-
-public class Ticket
-{
-    public Ticket(Registration registration)
-    {
-        Id = registration.Id;
-        Status = registration.Status;
-        RegistrationDate = registration.RegistrationDate;
-        Name = $"{registration.Name} {registration.Surname}";
-    }
-
-    public DateTimeOffset RegistrationDate { get; }
-
-    public RegistrationStatus Status { get; }
-
-    public Guid Id { get; }
-    
-    public string Name { get; }
 }

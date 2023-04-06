@@ -24,13 +24,13 @@ import { sha256 } from 'crypto-hash';
           method: 'GET'
         });
 
-        //const link = http;
-        const link = createPersistedQueryLink({
+        const link = http;
+        /*const link = createPersistedQueryLink({
           sha256,
           useGETForHashedQueries: true
         }
         ).concat(http);
-
+*/
         return {
           cache: new InMemoryCache(),
           link: link,

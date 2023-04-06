@@ -63,8 +63,6 @@ public class RegistrationsRepository
         }
         else
         {
-            fromExisting.Name = registration.Name;
-            fromExisting.Surname = registration.Name;
             fromExisting.CheckInDate = registration.CheckInDate;
         }
     }

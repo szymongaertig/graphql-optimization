@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{FDB9DA3C-B4E7-48C4-90F2-E2095AAAA0E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIIDataClient", "PIIDataClient\PIIDataClient.csproj", "{F408383F-9870-4E14-B4F9-B9DABB936B6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{FDB9DA3C-B4E7-48C4-90F2-E2095AAAA0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDB9DA3C-B4E7-48C4-90F2-E2095AAAA0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDB9DA3C-B4E7-48C4-90F2-E2095AAAA0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F408383F-9870-4E14-B4F9-B9DABB936B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F408383F-9870-4E14-B4F9-B9DABB936B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F408383F-9870-4E14-B4F9-B9DABB936B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F408383F-9870-4E14-B4F9-B9DABB936B6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

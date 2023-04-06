@@ -48,7 +48,6 @@ export class RegistrationsListComponent implements OnInit, OnDestroy {
     this.querySubscription = this.apollo.watchQuery<GetRegistrationsQueryResult>({
       query: this.GetRegistrationsQuery,
       fetchPolicy: 'cache-first'
-      //pollInterval: 1000
     }).valueChanges
       .subscribe(({ data, loading }) => {
         this.loading = loading;
@@ -58,72 +57,6 @@ export class RegistrationsListComponent implements OnInit, OnDestroy {
       });
 
       //this.subscribeOnRegistered();
-      this.subscribeOnUpdated();
-  }
-
-  private subscribeOnUpdated(){
-    this.apollo.subscribe({
-      query: gql`subscription {
-        onRegistrationUpdated {
-          __typename
-          id
-          checkInDate
-        }
-      }`
-    }).subscribe(result =>{
-
-    });
-  }
-  private subscribeOnRegistered(){
-    this.apollo.subscribe<OnRegisteredSubscriptionResult>({
-      query: gql`subscription {
-        registration:onRegistered {
-          id
-          name
-          surname
-          checkInDate
-          registrationDate
-          emailAddress
-          status
-        }
-      }`
-    }).subscribe(result => {
-      const existingRegistrations = this.apollo.client.readQuery<GetRegistrationsQueryResult>({
-        query: this.GetRegistrationsQuery
-      });
-
-      this.apollo.client.writeQuery({
-        query: this.GetRegistrationsQuery,
-        data: {
-          registrations: [result.data?.registration!, ...existingRegistrations?.registrations!]
-        }
-      });
-
-    })
-  }
-
-  public checkIn(registration: Registration){
-    console.info(registration.id);
-    this.apollo.mutate({
-      mutation: gql`
-      mutation checkIn($registrationId: UUID!){
-        registration:checkIn(registrationId: $registrationId) {
-          id
-          checkInDate
-        }
-      }`,
-      variables: {
-        registrationId: registration.id
-      },
-      optimisticResponse: {
-        registration : {
-          __typename: "Registration",
-          id: registration.id,
-          checkInDate: new Date()
-        }
-      }
-    }).subscribe(result =>{
-
-    });
+      //this.subscribeOnUpdated();
   }
 }

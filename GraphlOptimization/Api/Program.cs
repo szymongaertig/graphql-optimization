@@ -6,6 +6,7 @@ using AutoFixture;
 using Hangfire;
 using Hangfire.MemoryStorage;
 using HotChocolate.Language;
+using PIIDataClient;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -20,6 +21,7 @@ builder.Host.UseSerilog();
 builder.Services.AddSingleton<RegistrationsRepository>();
 builder.Services.AddSingleton<RegistrationCreator>();
 builder.Services.AddSingleton<EmailsService>();
+builder.Services.AddSingleton<ClientService>();
 
 builder.Services
     .AddMemoryCache()
@@ -31,6 +33,7 @@ builder.Services
     .AddMutationType<Mutation>()
     .AddInMemorySubscriptions()
     .AddSubscriptionType<Subscription>()
+    .AddType<TicketType>()
     //.UseAutomaticPersistedQueryPipeline()
     //.AddInMemoryQueryStorage()
     .AddCacheControl()
@@ -58,47 +61,3 @@ app.UseCors();
 app.MapGraphQL();
 app.Run();
 
-public class RegistrationType : ObjectType<Registration>
-{
-    protected override void Configure(IObjectTypeDescriptor<Registration> descriptor)
-    {
-        descriptor
-            .Field("emails")
-            .Resolve<Email[]>(async (cx, ct) =>
-            {
-                var registration = cx.Parent<Registration>();
-                var emailService = cx.Service<EmailsService>();
-                return await emailService.GetRegistrationEmails(registration.Id);
-            });
-
-        descriptor
-            .Field("emailsWithLoader")
-            .Resolve<Email[]?>(async (cx, ct) =>
-            {
-                var registration = cx.Parent<Registration>();
-                var loader = cx.DataLoader<RegistrationEmailsDataLoader>();
-                var result = await loader.LoadAsync(registration.Id, ct);
-                return result;
-            });
-
-        descriptor
-            .Field("emailsStream")
-            .Resolve<IAsyncEnumerable<Email>>(async (cx, t) =>
-            {
-                var registration = cx.Parent<Registration>();
-                return GetRegistrationEmailsStream(registration.Id);
-            });
-
-        base.Configure(descriptor);
-    }
-
-    private static async IAsyncEnumerable<Email> GetRegistrationEmailsStream(Guid registrationId)
-    {
-        var result = new Fixture().CreateMany<Email>(10);
-        foreach (var email in result)
-        {
-            yield return email;
-            await Task.Delay(500);
-        }
-    }
-}
