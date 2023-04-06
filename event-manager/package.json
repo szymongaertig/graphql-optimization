@@ -26,6 +26,7 @@
     "@graphql-codegen/typescript": "2.5.1",
     "@graphql-codegen/typescript-apollo-angular": "3.4.12",
     "@graphql-codegen/typescript-operations": "2.4.2",
+    "angularx-qrcode": "^14.0.0",
     "apollo-angular": "4.1.0",
     "apollo-link-ws": "^1.0.20",
     "crypto-hash": "^2.0.1",

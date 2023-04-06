@@ -17,6 +17,7 @@ public class Query
         return _registrationsRepository.GetRegistrations();
     }
     
+    [CacheControl(2_000)]
     public async Task<Ticket> GetTicket(Guid ticketId)
     {
         await Task.Delay(2000);

@@ -24,12 +24,19 @@ export enum CacheControlScope {
   Public = 'PUBLIC'
 }
 
+export type Client = {
+  __typename?: 'Client';
+  emailAddress: Scalars['String'];
+  name: Scalars['String'];
+  surname: Scalars['String'];
+};
+
 export type Email = {
   __typename?: 'Email';
+  body: Scalars['String'];
   creationDate: Scalars['DateTime'];
   sentDate?: Maybe<Scalars['DateTime']>;
   subject: Scalars['String'];
-  title: Scalars['String'];
 };
 
 export type Mutation = {
@@ -57,16 +64,15 @@ export type QueryTicketArgs = {
 export type Registration = {
   __typename?: 'Registration';
   checkInDate?: Maybe<Scalars['DateTime']>;
-  emailAddress: Scalars['String'];
+  client?: Maybe<Client>;
+  clientId: Scalars['UUID'];
   emails?: Maybe<Array<Maybe<Email>>>;
   emailsStream?: Maybe<Array<Maybe<Email>>>;
   emailsWithLoader?: Maybe<Array<Maybe<Email>>>;
   eventId: Scalars['UUID'];
   id: Scalars['UUID'];
-  name: Scalars['String'];
   registrationDate: Scalars['DateTime'];
   status: RegistrationStatus;
-  surname: Scalars['String'];
 };
 
 export enum RegistrationStatus {
@@ -82,8 +88,9 @@ export type Subscription = {
 
 export type Ticket = {
   __typename?: 'Ticket';
+  client?: Maybe<Client>;
+  clientId: Scalars['UUID'];
   id: Scalars['UUID'];
-  name: Scalars['String'];
   registrationDate: Scalars['DateTime'];
   status: RegistrationStatus;
 };

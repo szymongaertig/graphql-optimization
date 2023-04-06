@@ -34,8 +34,8 @@ builder.Services
     .AddInMemorySubscriptions()
     .AddSubscriptionType<Subscription>()
     .AddType<TicketType>()
-    //.UseAutomaticPersistedQueryPipeline()
-    //.AddInMemoryQueryStorage()
+    .UseAutomaticPersistedQueryPipeline()
+    .AddInMemoryQueryStorage()
     .AddCacheControl()
     .UseQueryCachePipeline();
 
@@ -54,7 +54,7 @@ builder.Services.AddHangfire(c => c.UseMemoryStorage());
 builder.Services.AddHangfireServer();
 var app = builder.Build();
 var backgroundJobClient = app.Services.GetService<IBackgroundJobClient>();
-backgroundJobClient.Enqueue<RegistrationCreator>(x => x.Create());
+//backgroundJobClient.Enqueue<RegistrationCreator>(x => x.Create());
 
 app.UseWebSockets();
 app.UseCors();

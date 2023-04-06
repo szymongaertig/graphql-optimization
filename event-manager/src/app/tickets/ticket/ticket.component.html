@@ -1,7 +1,32 @@
-<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
-
-<ng-container *ngIf="ticket">
-  <b>Name</b> : {{ticket.name}} <br/>
-  <b>Status</b> : {{ticket.status}} <br/>
-  <b>RegistrationDate</b> : {{ticket.registrationDate | date}}
-</ng-container>
+<mat-card class="ticket-card">
+  <mat-card-header>
+    <h4>Bilet</h4>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    <ng-container *ngIf="ticket">
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td>{{ticket.client?.name}}</td>
+        </tr>
+        <tr>
+          <td>Surname:</td>
+          <td>{{ticket.client?.surname}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{ticket.client?.emailAddress}}</td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td>{{ticket.status}}</td>
+        </tr>
+        <tr>
+          <td>RegistrationDate:</td>
+          <td>{{ticket.registrationDate | date}}</td>
+        </tr>
+      </table>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
-import { map, tap } from 'rxjs';
 import { Ticket } from 'src/generated/graphql';
 
 export class GetTicketResult {
@@ -23,15 +22,19 @@ export class TicketComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     const ticketId = this.route.snapshot.paramMap.get('ticketId');
-
     this.apollo.watchQuery<GetTicketResult>({
       query: gql`
-      query getTicket($ticketId: UUID!){
-        ticket(ticketId:$ticketId) {
-          registrationDate
+      query getTicket($ticketId:UUID!){
+        ticket(ticketId: $ticketId) {
+          __typename
           id
+          client {
+            name
+            surname
+            emailAddress
+          }
           status
-          name
+          registrationDate
         }
       }
       `,

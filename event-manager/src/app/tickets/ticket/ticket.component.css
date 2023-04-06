@@ -1,0 +1,11 @@
+.ticket-card {
+  margin: 25px;
+}
+
+table {
+  width: 100%;
+}
+
+td:nth-child(1){
+  font-weight: bold;
+}

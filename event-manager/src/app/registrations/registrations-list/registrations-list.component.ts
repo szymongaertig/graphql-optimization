@@ -27,18 +27,21 @@ export class RegistrationsListComponent implements OnInit, OnDestroy {
     this.querySubscription.unsubscribe();
   }
 
-  public displayedColumns = ['id', 'registrationDate', 'checkInDate', 'status'];
+  public displayedColumns =  ['name','registrationDate', 'checkInDate', 'status'];
 
   private GetRegistrationsQuery = gql`
   query registrations{
     registrations:eventRegistrations{
       id
-      name
-      surname
       registrationDate
-      emailAddress
       checkInDate
       status
+
+      client{
+        name
+        surname
+        emailAddress
+      }
     }
   }
   `;
@@ -47,7 +50,8 @@ export class RegistrationsListComponent implements OnInit, OnDestroy {
     this.loading = false;
     this.querySubscription = this.apollo.watchQuery<GetRegistrationsQueryResult>({
       query: this.GetRegistrationsQuery,
-      fetchPolicy: 'cache-first'
+      fetchPolicy: 'cache-first',
+      pollInterval: 1000
     }).valueChanges
       .subscribe(({ data, loading }) => {
         this.loading = loading;
